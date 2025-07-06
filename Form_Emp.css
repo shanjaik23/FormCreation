@@ -1,0 +1,95 @@
+.Section {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 20px;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.nav-links{
+    list-style: none;
+    display: flex;
+    justify-content: left;
+    padding-left:10px;
+    gap: 30px;
+    
+}
+.nav-links a {
+  color: #007bff;
+  text-decoration: none;
+  opacity: 0.7;
+  font-weight: 600;
+}
+
+.left img {
+  width: 600px;
+  height: 750px;
+  object-fit: contain;
+}
+.hobbies, .gender {
+    display: flex;
+    justify-content:left;
+    gap: 20px;    
+}
+.form-container {
+  flex: 1;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  
+}
+
+form label {
+  display: block;
+  margin-top: 10px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form select,
+form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.hobbies,.gender {
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  border: none;
+  background-color: #007bff;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#resetBtn {
+  background-color: #dc3545;
+  margin-left: 10px;
+}
+
+.table-container {
+  max-width: 90%;
+  margin: 20px auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}

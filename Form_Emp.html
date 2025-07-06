@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Employee Form</title>
+  <link rel="stylesheet" href="Form_Emp.css">
+</head>
+<body>
+  <div class="Section">
+    <div class="left">
+        <nav class="nav">
+            <ul class="nav-links">
+            <li><a href="" class="home" alt="home">Home</a></li>
+            <li><a href="#" onclick="showEmpList()">Emp List</a></li>
+            </ul>
+        </nav>
+     <img src="Logo2.avif">
+     </div> <div class="form-container">
+    <h2>Employee Registration</h2>
+    <form id="employeeForm">
+      <label>Name: <input type="text" name="name" ></label>
+      <label>Email: <input type="email" name="email" ></label>
+      <label>Age: <input type="text" name="age" ></label>
+      <div class="hobbies">
+      <label>Hobbies:</label>
+      <label><input type="checkbox" name="hobbies" value="Reading"> Reading</label>
+      <label><input type="checkbox" name="hobbies" value="Traveling"> Traveling</label>
+      <label><input type="checkbox" name="hobbies" value="Sports"> Sports</label>
+      </div>
+      <div class="gender">
+      <label>Gender:</label>
+      <label><input type="radio" name="gender" value="Male" > Male</label>
+      <label><input type="radio" name="gender" value="Female"> Female</label>
+      </div>
+      <label>City:
+        <select name="city" >
+          <option value="">Select</option>
+          <option>Chennai</option>
+          <option>Madurai</option>
+          <option>Salem</option>
+          <option>Chitoor</option>
+          <option>Nellore</option>
+          <option>Tirupathi</option>
+          <option>Kochi</option>
+          <option>Palakkad</option>
+          <option>Kollam</option>
+          <option>Others</option>
+        </select>
+      </label>
+
+      <label>State:
+        <select name="state">
+          <option value="">Select</option>
+          <option>Tamil Nadu</option>
+          <option>Andhra Pradesh</option>
+          <option>Kerala</option>
+          <option>Others</option>
+        </select>
+      </label>
+      <label>Tell us about yourself:
+        <textarea name="about" rows="3"></textarea>
+      </label>
+
+      <button type="button" onclick="addEmployee()">Add Employee</button>
+      <button type="button" id="resetBtn">Reset</button>
+    </form>
+  </div>
+</div>
+  <div class="table-container" id="tableContainer" style="display: none;">
+    <h3>Employee Details</h3>
+    <table id="employeeTable">
+      <thead>
+        <tr>
+          <th>Name</th><th>Email</th><th>Age</th><th>Hobbies</th><th>City</th><th>State</th><th>Gender</th><th>About</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="Form_Emp.js"></script>
+</body>
+</html>
