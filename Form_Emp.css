@@ -1,13 +1,31 @@
-.Section {
+
+.strong{
+    font-size: 20px;
+    color: #f26113;
+    padding-left: 30px;
+}
+#stg, .table-container th{
+  color: #2E7D32;
+}
+.home-left,.home-right{
+  max-width: 750px;
+}
+ .home-page{
   display: flex;
   align-items: flex-start;
   gap: 30px;
   padding: 20px;
-}
+  
+ }
+
 .nav{
+    font-size: 20px;
+    font-weight: bold;
     display: flex;
     justify-content: space-between;
-    
+    margin-top:20px;
+    padding-top: 20px;
+    padding-left: 20px;
 }
 .nav-links{
     list-style: none;
@@ -18,29 +36,50 @@
     
 }
 .nav-links a {
-  color: #007bff;
+  color: #ff5900;
   text-decoration: none;
   opacity: 0.7;
-  font-weight: 600;
+  font-weight: 700;
 }
+.Section,#section {
+  
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 20px;
+  max-width: Auto;
+  margin: 20px;
+  flex-wrap: wrap; 
+   
+}
+.left {
+  flex: 1;
+  max-width: 50%;
+}
+  .left img {
 
-.left img {
-  width: 600px;
-  height: 750px;
+  width: 100%; 
+  height: auto;
   object-fit: contain;
-}
-.hobbies, .gender {
-    display: flex;
-    justify-content:left;
-    gap: 20px;    
+  border-radius: 8px;
 }
 .form-container {
+
   flex: 1;
+  max-width: 50%;
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 8px;
   
 }
+
+.hobbies, .gender {
+    display: flex;
+    justify-content:left;
+    gap: 20px;    
+}
+
 
 form label {
   display: block;
@@ -66,14 +105,14 @@ button {
   margin-top: 15px;
   padding: 10px 15px;
   border: none;
-  background-color: #007bff;
+  background-color: #f26113;
   color: #ffffff;
   cursor: pointer;
   border-radius: 4px;
 }
 
 #resetBtn {
-  background-color: #dc3545;
+  background-color: #2E7D32;
   margin-left: 10px;
 }
 
@@ -81,7 +120,9 @@ button {
   max-width: 90%;
   margin: 20px auto;
 }
-
+.table-container h3{
+  color: #f26113;
+}
 table {
   width: 100%;
   border-collapse: collapse;
@@ -91,5 +132,14 @@ table {
 th, td {
   border: 1px solid #ccc;
   padding: 10px;
-  text-align: left;
+  text-align: center;
+}
+
+.task-todo-list h2,#list{
+  padding: 5px;
+  text-align: center;
+}
+
+#tlist{
+  margin: 20px;
 }

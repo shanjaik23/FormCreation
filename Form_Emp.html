@@ -6,21 +6,41 @@
   <link rel="stylesheet" href="Form_Emp.css">
 </head>
 <body>
-  <div class="Section">
-    <div class="left">
-        <nav class="nav">
+  <nav class="nav">
             <ul class="nav-links">
             <li><a href="" class="home" alt="home">Home</a></li>
+            <li><a href="#" onclick="addEmp()">Add Emp</a></li>
             <li><a href="#" onclick="showEmpList()">Emp List</a></li>
+            <li><a href="#" onclick="showtasklist()">Add Task</a></li>
             </ul>
         </nav>
-     <img src="Logo2.avif">
-     </div> <div class="form-container">
+  <div class="home-page" id="home-page">
+    <div class="home-left">
+       
+     <div class="strong"><h1><strong>
+      <br/><br/>
+        Get <span class="highlight">ready</span> for your business<br>
+        & upgrade <span class="highlight">all aspects</span></strong>
+        </h1>
+        <p><strong> _______</strong></p><br/>
+
+        <p id="stg">Mexant HTML5 Template is provided for free of charge. This layout is based on Bootstrap 5 CSS framework. Anyone can download and edit for any professional website. Thank you for visiting TemplateMo website.</p>
+      </div>
+    </div>
+    <div class"home-right">
+      <img src="Home.png" alt="Home page" width="750px">
+    </div>
+  </div>
+ <!--   <div class="Section" id="section">
+    <div class="left">
+     <img src="Logo2.avif" alt="Logo">
+     </div>
+      <div class="form-container">
     <h2>Employee Registration</h2>
     <form id="employeeForm">
-      <label>Name: <input type="text" name="name" ></label>
-      <label>Email: <input type="email" name="email" ></label>
-      <label>Age: <input type="text" name="age" ></label>
+      <label>Name: <input type="text" name="name" placeholder="Enter your name" ></label>
+      <label>Email: <input type="email" name="email"  placeholder="Enter your email"></label>
+      <label>Age: <input type="text" name="age"  placeholder="Enter your age"></label>
       <div class="hobbies">
       <label>Hobbies:</label>
       <label><input type="checkbox" name="hobbies" value="Reading"> Reading</label>
@@ -58,14 +78,82 @@
         </select>
       </label>
       <label>Tell us about yourself:
-        <textarea name="about" rows="3"></textarea>
+        <textarea name="about" rows="3" placeholder="Say something about you" ></textarea>
       </label>
 
       <button type="button" onclick="addEmployee()">Add Employee</button>
-      <button type="button" id="resetBtn">Reset</button>
+      <button type="button" id="resetBtn"onclick="resetBtn()">Reset</button>
     </form>
   </div>
-</div>
+</div> -->
+<div class="Section" >
+    <div class="left">
+      <img src="Emp_Left.png" alt="Logo">
+    </div>
+
+    <div class="form-container">
+      <h2>Employee Registration</h2>
+      <form id="employeeForm">
+        <label>Name:
+          <input type="text" name="name" placeholder="Enter your name" required>
+        </label>
+
+        <label>Email:
+          <input type="email" name="email" placeholder="Enter your email" required>
+        </label>
+
+        <label>Age:
+          <input type="text" name="age" placeholder="Enter your age" required>
+        </label>
+
+        <div class="hobbies">
+          <label>Hobbies:</label>
+          <label><input type="checkbox" name="hobbies" value="Reading"> Reading</label>
+          <label><input type="checkbox" name="hobbies" value="Traveling"> Traveling</label>
+          <label><input type="checkbox" name="hobbies" value="Sports"> Sports</label>
+        </div>
+
+        <div class="gender">
+          <label>Gender:</label>
+          <label><input type="radio" name="gender" value="Male"> Male</label>
+          <label><input type="radio" name="gender" value="Female"> Female</label>
+        </div>
+
+        <label>City:
+          <select name="city" required>
+          <option value="">Select</option>
+          <option>Chennai</option>
+          <option>Madurai</option>
+          <option>Salem</option>
+          <option>Chitoor</option>
+          <option>Nellore</option>
+          <option>Tirupathi</option>
+          <option>Kochi</option>
+          <option>Palakkad</option>
+          <option>Kollam</option>
+          <option>Others</option>
+          </select>
+        </label>
+
+        <label>State:
+          <select name="state" required>
+          <option value="">Select</option>
+          <option>Tamil Nadu</option>
+          <option>Andhra Pradesh</option>
+          <option>Kerala</option>
+          <option>Others</option>
+          </select>
+        </label>
+
+        <label>About:
+          <textarea name="about" placeholder="Say something about you" rows="3"></textarea>
+        </label>
+
+        <button type="button" onclick="addEmployee()">Add Employee</button>
+      <button type="button" id="resetBtn" onclick="resetBtnn()">Reset</button>
+      </form>
+    </div>
+  </div>
   <div class="table-container" id="tableContainer" style="display: none;">
     <h3>Employee Details</h3>
     <table id="employeeTable">
@@ -76,6 +164,30 @@
       </thead>
       <tbody></tbody>
     </table>
+  </div>
+
+  <div class="task-todo-list">
+        <h2>To-Do List</h2>
+<div id="list">
+        <label> Enter Task:</label>
+  <input type="text" id="taskInput" placeholder="Enter task">
+  <button onclick="addTask()">Add Task</button></div>
+  <br/>
+  <br/>
+<div id="tlist">
+  <table >
+    <thead>
+      <tr>
+        <th>No.</th>
+        <th>Completed</th>
+        <th>Task</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="task-TBody">
+    </tbody>
+  </table>
+  </div>
   </div>
 
   <script src="Form_Emp.js"></script>
