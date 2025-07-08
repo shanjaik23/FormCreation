@@ -1,17 +1,39 @@
 var form = document.getElementById("employeeForm");
 var section = document.getElementsByClassName("Section")[0];
+var cart = document.getElementsByClassName("add-to-cart")[0];
 var homePage = document.getElementById("home-page");
 var tableContainer = document.getElementById("tableContainer");
 var tableBody = document.getElementById("employeeTable").getElementsByTagName("tbody")[0];
 var task = document.getElementsByClassName("task-todo-list")[0];
 
+cart.style.display = "none";
 task.style.display = "none";
 section.style.display = "none";
 tableContainer.style.display = "none";
 
+function showError(fieldName, message) {
+  const input = form.elements[fieldName];
+  if (input && typeof input.classList !== "undefined") {
+    input.classList.add("input-error");
+  }
+
+  const errorSpan = document.getElementById("error-" + fieldName);
+  if (errorSpan) {
+    errorSpan.textContent = message;
+  }
+}
+
+function clearErrors() {
+  const errors = document.querySelectorAll(".error");
+  errors.forEach(e => e.textContent = "");
+
+  const inputs = form.querySelectorAll(".input-error");
+  inputs.forEach(input => input.classList.remove("input-error"));
+}
+
 function addEmployee() {
   console.log("Add Employee triggered");
-
+  
   if (!validateForm()) {
     console.log("validation failed");
     return;
@@ -63,7 +85,8 @@ function reset(name, email, age, gender, city, state, hobbies, about) {
 
 function validateForm() {
   console.log("Validating form");
-
+  clearErrors();
+  var isValid = true;
   var name = form.elements["name"].value.trim();
   var email = form.elements["email"].value.trim();
   var age = form.elements["age"].value.trim();
@@ -74,54 +97,56 @@ function validateForm() {
   var about = form.elements["about"].value.trim();
 
   if (name === "") {
-    alert("Please enter your name.");
-    return false;
+    showError("name", "Please enter your name.");
+     isValid = false;
   }
 
   var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (email === "" || !emailRegex.test(email)) {
-    alert("Please enter a valid email address.");
-    return false;
+    showError("email","Please enter a valid email address.");
+    isValid = false;
   }
 
   if (age === "" || isNaN(age)) {
-    alert("Please enter a valid age.");
-    return false;
+    showError("age","Please enter a valid age.");
+     isValid = false;
   }
 
   if (!gender) {
-    alert("Please select your gender.");
-    return false;
+    showError("gender","Please select your gender.");
+     isValid = false;
   }
 
   if (hobbies.length === 0) {
-    alert("Please select at least one hobby.");
-    return false;
+    showError("hobbies","Please select at least one hobby.");
+     isValid = false;
   }
 
   if (city === "") {
-    alert("Please select your city.");
-    return false;
+    showError("city","Please select your city.");
+     isValid = false;
   }
 
   if (state === "") {
-    alert("Please select your state.");
-    return false;
+    showError("state","Please select your state.");
+     isValid = false;
   }
 
   if (about === "") {
-    alert("Please fill about yourself.");
-    return false;
+    showError("about","Please fill about yourself.");
+     isValid = false;
   }
 
   console.log("Form validation passed");
-  return true;
+  return isValid;
 }
 
 function addEmp() {
   console.log("Add Employee Section");
   homePage.style.display = "none";
   tableContainer.style.display = "none";
+  cart.style.display = "none";
+   task.style.display = "none";
   section.style.display = "flex";
 }
 
@@ -136,6 +161,8 @@ function showEmpList() {
   console.log("Employee List");
   homePage.style.display = "none";
   section.style.display = "none";
+  cart.style.display = "none";
+   task.style.display = "none";
   tableContainer.style.display = "block";
 }
 
@@ -144,10 +171,12 @@ function showtasklist() {
   homePage.style.display = "none";
   section.style.display = "none";
   tableContainer.style.display = "none";
+  cart.style.display = "none";
   task.style.display = "block";
 }
 
 
+var taskBeingEdited = null; 
 
 function addTask() {
   console.log("Add Task function");
@@ -157,6 +186,13 @@ function addTask() {
 
   if (taskText === "") {
     alert("Please enter a task.");
+    return;
+  }
+
+  if (taskBeingEdited) {
+    taskBeingEdited.textContent = taskText;
+    taskBeingEdited = null;
+    input.value = "";
     return;
   }
 
@@ -190,13 +226,19 @@ function addTask() {
   var editBtn = document.createElement("button");
   editBtn.textContent = "Edit";
   editBtn.onclick = function () {
-    var newTask = prompt("Edit your task:", text.textContent);
-     text.textContent = newTask.trim();
+    /*var newTask = prompt("Edit your task:", text.textContent);
+     text.textContent = newTask.trim(); */
+    document.getElementById("taskInput").value = text.textContent;
+    taskBeingEdited = text;
   };
 
   var deleteBtn = document.createElement("button");
   deleteBtn.textContent = "Delete";
   deleteBtn.style.marginLeft = "8px";
+  deleteBtn.style.setProperty("background-color", "#2E7D32", "important");
+  deleteBtn.style.setProperty("color", "white", "important");
+
+  
   deleteBtn.onclick = function () {
     newRow.remove();
     
@@ -210,4 +252,27 @@ function addTask() {
   console.log("Task input cleared");
 }
 
+function showproductlist() {
+  console.log("Add to Cart");
+  cart.style.display = "block";
+  homePage.style.display = "none";
+  task.style.display = "none";
+  section.style.display = "none";
+  tableContainer.style.display = "none";
+}
 
+const searchInput = document.getElementById("searchInput");
+
+  searchInput.addEventListener("input", () => {
+    const searchValue = searchInput.value.toLowerCase();
+    const cards = document.querySelectorAll(".product-card");
+
+    cards.forEach(card => {
+      const info = card.getAttribute("data-info");
+      if (info.includes(searchValue)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });

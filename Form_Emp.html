@@ -12,6 +12,7 @@
             <li><a href="#" onclick="addEmp()">Add Emp</a></li>
             <li><a href="#" onclick="showEmpList()">Emp List</a></li>
             <li><a href="#" onclick="showtasklist()">Add Task</a></li>
+             <li><a href="#" onclick="showproductlist()">Add to Cart</a></li>
             </ul>
         </nav>
   <div class="home-page" id="home-page">
@@ -41,14 +42,17 @@
       <form id="employeeForm">
         <label>Name:
           <input type="text" name="name" placeholder="Enter your name" required>
+          <span class="error" id="error-name"></span>
         </label>
 
         <label>Email:
           <input type="email" name="email" placeholder="Enter your email" required>
+          <span class="error" id="error-email"></span>
         </label>
 
         <label>Age:
           <input type="text" name="age" placeholder="Enter your age" required>
+          <span class="error" id="error-age"></span>
         </label>
 
         <div class="hobbies">
@@ -57,15 +61,15 @@
           <label><input type="checkbox" name="hobbies" value="Traveling"> Traveling</label>
           <label><input type="checkbox" name="hobbies" value="Sports"> Sports</label>
         </div>
-
+        <span class="error" id="error-hobbies"></span>
         <div class="gender">
           <label>Gender:</label>
           <label><input type="radio" name="gender" value="Male"> Male</label>
           <label><input type="radio" name="gender" value="Female"> Female</label>
         </div>
-
+        <span class="error" id="error-gender"></span>
         <label>City:
-          <select name="city" required>
+          <select name="city" >
           <option value="">Select</option>
           <option>Chennai</option>
           <option>Madurai</option>
@@ -78,6 +82,7 @@
           <option>Kollam</option>
           <option>Others</option>
           </select>
+          <span class="error" id="error-city"></span>
         </label>
 
         <label>State:
@@ -88,10 +93,12 @@
           <option>Kerala</option>
           <option>Others</option>
           </select>
+          <span class="error" id="error-state"></span>
         </label>
 
         <label>About:
           <textarea name="about" placeholder="Say something about you" rows="3"></textarea>
+          <span class="error" id="error-about"></span>
         </label>
 
         <button type="button" onclick="addEmployee()">Add Employee</button>
@@ -134,7 +141,131 @@
   </table>
   </div>
   </div>
+<div class="add-to-cart">
+  <div id="cart-top">
+   <h2>List of Products Available</h2>
+  <label>Search: </label>
+  <input type="text" id="searchInput" placeholder="Filter by name, brand, year, price, color..." />
+</div>
+ <h2> Phone Collections</h2>
+  <section class="product-grid">
+   
+  <div class="product-card" data-info="iphone 14 apple 2022 black 79999">
+    <img src="Iphone 14.jpeg" alt="iPhone 14" />
+    <h4>Model: iPhone 14</h4>
+    <p>Brand: Apple</p>
+    <p>YoM: 2022</p>
+    <p>Color: Black</p>
+    <p>Price: ₹79,999</p>
+  </div>
 
+  <div class="product-card" data-info="Galaxy S22 Samsung 2022 Blue 69999" >
+    <img src="Galaxy S22.jpg" alt="Galaxy S22" />
+    <h4>Model: Galaxy S22</h4>
+    <p>Brand: Samsung</p>
+    <p>YoM: 2022</p>
+    <p>Color: Blue</p>
+    <p>Price: ₹69,999</p>
+  </div>
+
+  <div class="product-card" data-info="Pixel 6 Google 2021 White 55999">
+    <img src="Pixel 6.jpg" alt="Pixel 6" />
+    <h4>Model: Pixel 6</h4>
+    <p>Brand: Google</p>
+    <p>YoM: 2021</p>
+    <p>Color: White</p>
+    <p>Price: ₹55,999</p>
+  </div>
+
+  <div class="product-card" data-info="OnePlus 11 2023 Green 61999">
+    <img src="OnePlus 11.jpeg" alt="OnePlus 11" />
+    <h4>Model: OnePlus 11</h4>
+    <p>Brand: OnePlus</p>
+    <p>YoM: 2023</p>
+    <p>Color: Green</p>
+    <p>Price: ₹61,999</p>
+  </div>
+
+  <div class="product-card" data-info="Realme GT 2022 Red 29999">
+    <img src="Realme GT.jpeg" alt="Realme GT" />
+    <h4>Model: Realme GT</h4>
+    <p>Brand: Realme</p>
+    <p>YoM: 2022</p>
+    <p>Color: Red</p>
+    <p>Price: ₹29,999</p>
+  </div>
+
+  <div class="product-card" data-info="Redmi Note 12 Xiomi 2023 Gray 18999">
+    <img src="Redmi Note 12.jpeg" alt="Redmi Note 12" />
+    <h4>Model: Redmi Note 12</h4>
+    <p>Brand: Xiaomi</p>
+    <p>YoM: 2023</p>
+    <p>Color: Gray</p>
+    <p>Price: ₹18,999</p>
+  </div>
+
+</section>
+
+  <h2>Laptop Collection</h2>
+  <section class="product-grid" id="laptopGrid">
+
+  <div class="product-card" data-info="macbook air m2 apple 2023 silver 124999">
+    <img src="MacBook Air M2.jpeg" alt="MacBook Air M2">
+    <h4>Model: MacBook Air M2</h4>
+    <p>Brand: Apple</p>
+    <p>YoM: 2023</p>
+    <p>Color: Silver</p>
+    <p>Price: ₹1,24,999</p>
+  </div>
+
+  <div class="product-card" data-info="dell xps 13 dell 2022 white 109999">
+    <img src="Dell XPS 13.jpeg" alt="Dell XPS 13">
+    <h4>Model: Dell XPS 13</h4>
+    <p>Brand: Dell</p>
+    <p>YoM: 2022</p>
+    <p>Color: White</p>
+    <p>Price: ₹1,09,999</p>
+  </div>
+
+  <div class="product-card" data-info="hp spectre x360 hp 2023 black 129999">
+    <img src="HP Spectre x360.jpeg" alt="HP Spectre x360">
+    <h4>Model: HP Spectre x360</h4>
+    <p>Brand: HP</p>
+    <p>YoM: 2023</p>
+    <p>Color: Black</p>
+    <p>Price: ₹1,29,999</p>
+  </div>
+
+  <div class="product-card" data-info="lenovo thinkpad x1 lenovo 2022 black 114999">
+    <img src="Lenovo ThinkPad X1.jpeg" alt="ThinkPad X1">
+    <h4>Model: Lenovo ThinkPad X1</h4>
+    <p>Brand: Lenovo</p>
+    <p>YoM: 2022</p>
+    <p>Color: Black</p>
+    <p>Price: ₹1,14,999</p>
+  </div>
+
+  <div class="product-card" data-info="asus zenbook 14 asus 2023 blue 84999">
+    <img src="Asus ZenBook 14.jpeg" alt="ZenBook 14">
+    <h4>Model: Asus ZenBook 14</h4>
+    <p>Brand: Asus</p>
+    <p>YoM: 2023</p>
+    <p>Color: Blue</p>
+    <p>Price: ₹84,999</p>
+  </div>
+
+  <div class="product-card" data-info="acer swift 3 acer 2022 gray 64999">
+    <img src="Acer Swift 3.jpeg" alt="Acer Swift 3">
+    <h4>Model: Acer Swift 3</h4>
+    <p>Brand: Acer</p>
+    <p>YoM: 2022</p>
+    <p>Color: Gray</p>
+    <p>Price: ₹64,999</p>
+  </div>
+
+</section>
+
+</div>
   <script src="Form_Emp.js"></script>
 </body>
 </html>
